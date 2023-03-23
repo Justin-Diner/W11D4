@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import configureStore from './store';
 import './index.css';
 import App from './App';
+import { populateProduce } from './store/produce';
 
 const store = configureStore(); 
 
@@ -20,6 +21,7 @@ function Root() {
 
 if (process.env.NODE_ENV !== "production") {
 	window.store = store; 
+	window.populateProduce = populateProduce;
 }
 
 ReactDOM.render(
